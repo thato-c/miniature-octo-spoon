@@ -343,7 +343,6 @@ public class CalculatorGUI extends javax.swing.JFrame {
         System.out.println(operatorArray);
     }//GEN-LAST:event_btnEquateActionPerformed
 
-    private 
     
     /**
      * @param args the command line arguments
