@@ -9,6 +9,8 @@
  */
 public class CalculatorGUI extends javax.swing.JFrame {
 
+    String expression = "";
+    String tempValue = "";
     /**
      * Creates new form CalculatorGUI
      */
@@ -59,26 +61,81 @@ public class CalculatorGUI extends javax.swing.JFrame {
         btnPoint.setText(".");
 
         btnOne.setText("1");
+        btnOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOneActionPerformed(evt);
+            }
+        });
 
         btnFour.setText("4");
+        btnFour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFourActionPerformed(evt);
+            }
+        });
 
         btnSeven.setText("7");
+        btnSeven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSevenActionPerformed(evt);
+            }
+        });
 
         btnZero.setText("0");
+        btnZero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZeroActionPerformed(evt);
+            }
+        });
 
         btnEight.setText("8");
+        btnEight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEightActionPerformed(evt);
+            }
+        });
 
         btnFive.setText("5");
+        btnFive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiveActionPerformed(evt);
+            }
+        });
 
         btnTwo.setText("2");
+        btnTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTwoActionPerformed(evt);
+            }
+        });
 
         btnNine.setText("9");
+        btnNine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNineActionPerformed(evt);
+            }
+        });
 
         btnClear.setText("C");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         btnThree.setText("3");
+        btnThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThreeActionPerformed(evt);
+            }
+        });
 
         btnSix.setText("6");
+        btnSix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSixActionPerformed(evt);
+            }
+        });
 
         btnEquate.setText("=");
 
@@ -157,6 +214,72 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOneActionPerformed
+        tempValue = tempValue + "1";
+        expression = expression + "1";
+        tfOutput.setText(expression);
+    }//GEN-LAST:event_btnOneActionPerformed
+
+    private void btnTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTwoActionPerformed
+       tempValue = tempValue + "2";
+       expression = expression + "2";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnTwoActionPerformed
+
+    private void btnThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThreeActionPerformed
+        tempValue = tempValue + "3";
+       expression = expression + "3";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnThreeActionPerformed
+
+    private void btnFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFourActionPerformed
+        tempValue = tempValue + "4";
+       expression = expression + "4";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnFourActionPerformed
+
+    private void btnFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiveActionPerformed
+        tempValue = tempValue + "5";
+       expression = expression + "5";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnFiveActionPerformed
+
+    private void btnSixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSixActionPerformed
+        tempValue = tempValue + "6";
+       expression = expression + "6";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnSixActionPerformed
+
+    private void btnSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSevenActionPerformed
+        tempValue = tempValue + "7";
+       expression = expression + "7";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnSevenActionPerformed
+
+    private void btnEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEightActionPerformed
+        tempValue = tempValue + "8";
+       expression = expression + "8";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnEightActionPerformed
+
+    private void btnNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNineActionPerformed
+        tempValue = tempValue + "9";
+       expression = expression + "9";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnNineActionPerformed
+
+    private void btnZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZeroActionPerformed
+        tempValue = tempValue + "2";
+        expression = expression + "2";
+        tfOutput.setText(expression);
+    }//GEN-LAST:event_btnZeroActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        tempValue = "";
+       expression = "";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
