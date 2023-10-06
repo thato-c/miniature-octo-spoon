@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,6 +15,9 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
     String expression = "";
     String tempValue = "";
+    List<Double> valuesArray = new ArrayList<>();
+    List<String> operatorArray = new ArrayList<>();
+    
     /**
      * Creates new form CalculatorGUI
      */
@@ -51,6 +58,11 @@ public class CalculatorGUI extends javax.swing.JFrame {
         tfOutput.setEditable(false);
 
         btnAdd.setText("+");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnSubtract.setText("-");
 
@@ -143,6 +155,11 @@ public class CalculatorGUI extends javax.swing.JFrame {
         });
 
         btnEquate.setText("=");
+        btnEquate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEquateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,10 +305,46 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
     private void btnPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointActionPerformed
         tempValue = tempValue + ".";
-       expression = expression + ".";
-       tfOutput.setText(expression);
+        expression = expression + ".";
+        tfOutput.setText(expression);
     }//GEN-LAST:event_btnPointActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        expression = expression + "+";
+        tfOutput.setText(expression);
+        
+        try{
+            if (tempValue.charAt(tempValue.length() - 1) == '.'){
+                System.err.println("Enter a value after the decimal");
+            }
+            else if (tempValue.charAt(0) == '.'){
+                tempValue = "0" + tempValue;
+                try {
+                    double number = Double.parseDouble(tempValue);
+                    valuesArray.add(number);
+                    operatorArray.add("+");
+                    tempValue = "";
+                } catch (NumberFormatException e) {
+                    System.err.println("Invalid integer format");
+                }
+            } else {
+                double number = Double.parseDouble(tempValue);
+                valuesArray.add(number);
+                operatorArray.add("+");
+                tempValue = "";
+            } 
+        } catch (StringIndexOutOfBoundsException e){
+            System.err.println("Enter a value before an operator");
+        }   
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnEquateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquateActionPerformed
+        System.out.println(valuesArray);
+        System.out.println(operatorArray);
+    }//GEN-LAST:event_btnEquateActionPerformed
+
+    private 
+    
     /**
      * @param args the command line arguments
      */
