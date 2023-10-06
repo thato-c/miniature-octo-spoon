@@ -59,6 +59,11 @@ public class CalculatorGUI extends javax.swing.JFrame {
         btnDivision.setText("/");
 
         btnPoint.setText(".");
+        btnPoint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPointActionPerformed(evt);
+            }
+        });
 
         btnOne.setText("1");
         btnOne.addActionListener(new java.awt.event.ActionListener() {
@@ -270,8 +275,8 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNineActionPerformed
 
     private void btnZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZeroActionPerformed
-        tempValue = tempValue + "2";
-        expression = expression + "2";
+        tempValue = tempValue + "0";
+        expression = expression + "0";
         tfOutput.setText(expression);
     }//GEN-LAST:event_btnZeroActionPerformed
 
@@ -280,6 +285,12 @@ public class CalculatorGUI extends javax.swing.JFrame {
        expression = "";
        tfOutput.setText(expression);
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnPointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPointActionPerformed
+        tempValue = tempValue + ".";
+       expression = expression + ".";
+       tfOutput.setText(expression);
+    }//GEN-LAST:event_btnPointActionPerformed
 
     /**
      * @param args the command line arguments
