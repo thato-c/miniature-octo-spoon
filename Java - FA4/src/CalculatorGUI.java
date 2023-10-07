@@ -339,6 +339,45 @@ public class CalculatorGUI extends javax.swing.JFrame {
         
         System.out.println(valuesArray);
         System.out.println(operatorArray);
+        
+        boolean containsDivision = operatorArray.contains('/');
+        boolean containsMultiplication = operatorArray.contains('*');
+        boolean containsAddition = operatorArray.contains('+');
+        boolean containsSubtraction = operatorArray.contains('-');
+        
+        if (containsDivision){
+            int operatorIndex = -1;
+            char target = '/';
+            
+            for (int i = 0; i < operatorArray.size(); i++){
+                if (operatorArray.get(i).equals(target) ){
+                   operatorIndex = i;
+                   int valueOneIndex = i;
+                   int valueTwoIndex = i + 1;
+                   System.out.println("There is a division sign at index: " + operatorIndex);
+                   
+                   System.out.println("Value 1: " + valuesArray.get(valueOneIndex));
+                   System.out.println("Value 2: " + valuesArray.get(valueTwoIndex));
+                   
+                   double quotient = valuesArray.get(valueOneIndex) / valuesArray.get(valueTwoIndex);
+                   System.out.println("Quotient: " + quotient);
+                   
+                   valuesArray.set(valueOneIndex, quotient);
+                   valuesArray.remove(valueTwoIndex);
+                   System.out.println(valuesArray);
+                   System.out.println(operatorArray);
+                   break;
+                }
+            }
+        } else if (containsMultiplication) {
+            System.out.println("There is a multiplication sign");
+        } else if (containsAddition) {
+            System.out.println("There is an addition sign");
+        } else if (containsSubtraction) {
+            System.out.println("There is a subtraction sign");
+        } else {
+            System.out.println("There are no operators left");
+        }
     }//GEN-LAST:event_btnEquateActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
