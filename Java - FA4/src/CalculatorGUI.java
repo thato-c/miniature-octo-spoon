@@ -340,44 +340,28 @@ public class CalculatorGUI extends javax.swing.JFrame {
         System.out.println(valuesArray);
         System.out.println(operatorArray);
         
-        boolean containsDivision = operatorArray.contains('/');
-        boolean containsMultiplication = operatorArray.contains('*');
-        boolean containsAddition = operatorArray.contains('+');
-        boolean containsSubtraction = operatorArray.contains('-');
+        while (!operatorArray.isEmpty()){
+            boolean containsDivision = operatorArray.contains('/');
+            boolean containsMultiplication = operatorArray.contains('*');
+            boolean containsAddition = operatorArray.contains('+');
+            boolean containsSubtraction = operatorArray.contains('-');
         
-        if (containsDivision){
-            int operatorIndex = -1;
-            char target = '/';
-            
-            for (int i = 0; i < operatorArray.size(); i++){
-                if (operatorArray.get(i).equals(target) ){
-                   operatorIndex = i;
-                   int valueOneIndex = i;
-                   int valueTwoIndex = i + 1;
-                   System.out.println("There is a division sign at index: " + operatorIndex);
-                   
-                   System.out.println("Value 1: " + valuesArray.get(valueOneIndex));
-                   System.out.println("Value 2: " + valuesArray.get(valueTwoIndex));
-                   
-                   double quotient = valuesArray.get(valueOneIndex) / valuesArray.get(valueTwoIndex);
-                   System.out.println("Quotient: " + quotient);
-                   
-                   valuesArray.set(valueOneIndex, quotient);
-                   valuesArray.remove(valueTwoIndex);
-                   System.out.println(valuesArray);
-                   System.out.println(operatorArray);
-                   break;
-                }
+        
+            if (containsDivision) {
+                performDivisionOperation();
+            } else if (containsMultiplication) {
+                performMultiplicationOperation();
+            } else if (containsAddition) {
+                performAdditionOperation();
+            } else if (containsSubtraction) {
+                performSubtractionOperation();
+            } else {
+                System.out.println("There are no operators left");
+                String value = Double.toString(valuesArray.get(0));
+                tfOutput.setText(value);
+                operatorArray.clear();
             }
-        } else if (containsMultiplication) {
-            System.out.println("There is a multiplication sign");
-        } else if (containsAddition) {
-            System.out.println("There is an addition sign");
-        } else if (containsSubtraction) {
-            System.out.println("There is a subtraction sign");
-        } else {
-            System.out.println("There are no operators left");
-        }
+        }   
     }//GEN-LAST:event_btnEquateActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
@@ -423,6 +407,70 @@ public class CalculatorGUI extends javax.swing.JFrame {
         } catch (StringIndexOutOfBoundsException e){
             System.err.println("Enter a value before an operator");
         }
+    }
+    
+    private void performDivisionOperation(){
+        int operatorIndex = operatorArray.indexOf('/');
+        int valueOneIndex = operatorIndex;
+        int valueTwoIndex = operatorIndex + 1;
+        
+        double result = valuesArray.get(valueOneIndex) / valuesArray.get(valueTwoIndex);
+        
+        valuesArray.set(valueOneIndex, result);
+        valuesArray.remove(valueTwoIndex);
+        operatorArray.remove(operatorIndex);
+
+        System.out.println("Performed division operation");
+        System.out.println(valuesArray);
+        System.out.println(operatorArray);
+    }
+    
+    private void performMultiplicationOperation(){
+        int operatorIndex = operatorArray.indexOf('*');
+        int valueOneIndex = operatorIndex;
+        int valueTwoIndex = operatorIndex + 1;
+        
+        double result = valuesArray.get(valueOneIndex) * valuesArray.get(valueTwoIndex);
+        
+        valuesArray.set(valueOneIndex, result);
+        valuesArray.remove(valueTwoIndex);
+        operatorArray.remove(operatorIndex);
+
+        System.out.println("Performed multiplication operation");
+        System.out.println(valuesArray);
+        System.out.println(operatorArray);
+    }
+    
+    private void performAdditionOperation(){
+        int operatorIndex = operatorArray.indexOf('+');
+        int valueOneIndex = operatorIndex;
+        int valueTwoIndex = operatorIndex + 1;
+        
+        double result = valuesArray.get(valueOneIndex) + valuesArray.get(valueTwoIndex);
+        
+        valuesArray.set(valueOneIndex, result);
+        valuesArray.remove(valueTwoIndex);
+        operatorArray.remove(operatorIndex);
+
+        System.out.println("Performed addition operation");
+        System.out.println(valuesArray);
+        System.out.println(operatorArray);
+    }
+    
+    private void performSubtractionOperation(){
+        int operatorIndex = operatorArray.indexOf('-');
+        int valueOneIndex = operatorIndex;
+        int valueTwoIndex = operatorIndex + 1;
+        
+        double result = valuesArray.get(valueOneIndex) - valuesArray.get(valueTwoIndex);
+        
+        valuesArray.set(valueOneIndex, result);
+        valuesArray.remove(valueTwoIndex);
+        operatorArray.remove(operatorIndex);
+
+        System.out.println("Performed subtraction operation");
+        System.out.println(valuesArray);
+        System.out.println(operatorArray);
     }
     
     /**
